@@ -3,19 +3,30 @@ import type { ReactNode } from 'react';
 
 export const MswProvider = ({ children }: { children: ReactNode }) => {
   const [isReady, setIsReady] = useState(false);
-
   useEffect(() => {
+    let worker: any;
+
     if (process.env.NODE_ENV !== 'test') {
       import('../mocks/browser')
-        .then(({ worker }) => worker.start())
+        .then(module => {
+          worker = module.worker;
+          return worker.start();
+        })
         .then(() => setIsReady(true))
         .catch(err => console.error('MSW 초기화 실패:', err));
     } else {
       setIsReady(true);
     }
+
+    return () => {
+      if (worker && typeof worker.stop === 'function') {
+        worker.stop();
+      }
+    };
   }, []);
 
-  if (!isReady) return null;
-
+  if (!isReady) {
+    return <div style={{ display: 'none' }}>MSW 초기화 중...</div>;
+  }
   return children;
 };
