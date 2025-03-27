@@ -1,11 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import Home from '@/pages/Home';
 
-interface Props {
-  children?: React.ReactNode;
-}
-
-const RouterProvider = ({ children }: Props) => {
+const RouterProvider = () => {
   return (
     <Router>
       <Routes>
