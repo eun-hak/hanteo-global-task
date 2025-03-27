@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 const theme = {
   colors: {
     primary: '#FF2D6A', // 포인트 컬러 (진한 핑크)
-    secondary: '#FF92AE', // 연한 핑크
+    secondary: '#FFC1CC', // 연한 핑크
     background: '#f5f5f5', // 배경
     text: '#333333', // 기본 텍스트
     textSecondary: '#666666', // 서브 텍스트
