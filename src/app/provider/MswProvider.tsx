@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
+import { SetupWorker } from 'msw/lib/browser';
 
 export const MswProvider = ({ children }: { children: ReactNode }) => {
   const [isReady, setIsReady] = useState(false);
   useEffect(() => {
-    let worker: any;
+    let worker: SetupWorker;
 
     if (process.env.NODE_ENV !== 'test') {
       import('../mocks/browser')
