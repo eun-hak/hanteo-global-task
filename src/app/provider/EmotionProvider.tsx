@@ -24,14 +24,14 @@ const globalStyles = css`
     font-family: 'Pretendard';
     src: url('/font/Pretendard-SemiBold.woff2') format('woff2');
     font-weight: 600;
-    font-style: bold;
+    font-style: normal;
     font-display: swap;
   }
   @font-face {
     font-family: 'Pretendard';
     src: url('/font/Pretendard-Bold.woff2') format('woff2');
     font-weight: 700;
-    font-style: bold;
+    font-style: normal;
     font-display: swap;
   }
 `;

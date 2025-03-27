@@ -21,7 +21,7 @@
       "@/pages/*": ["./src/pages/*"],
       "@/shared/*": ["./src/shared/*"],
       "@/widgets/*": ["./src/widgets/*"],
-      "@/features/*": ["./src/entities/*"]
+      "@/features/*": ["./src/features/*"]
     }
   },
   "include": ["src", "**/*.ts", "**/*.tsx", "svg.d.ts"],
