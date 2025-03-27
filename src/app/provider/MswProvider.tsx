@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import type { ReactNode } from 'react';
-import { SetupWorker } from 'msw/lib/browser';
+import type { SetupWorker } from 'msw/lib/browser';
 
 export const MswProvider = ({ children }: { children: ReactNode }) => {
   const [isReady, setIsReady] = useState(false);
