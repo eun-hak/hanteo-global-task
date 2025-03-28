@@ -1,15 +1,15 @@
-import { Outlet } from 'react-router-dom';
 import BannerCarousel from '@/widgets/BannerCarousel';
+import CategorySwiper from '@/widgets/CategorySwiper';
 import CategoryTabs from '@/widgets/CategoryTabs';
 
-const CategoryLayout = () => {
+const HomePage = () => {
   return (
-    <>
+    <div>
       <CategoryTabs />
       <BannerCarousel />
-      <Outlet />
-    </>
+      <CategorySwiper />
+    </div>
   );
 };
 
-export default CategoryLayout;
+export default HomePage;
