@@ -1,21 +1,36 @@
+import { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { usePreserveScroll } from '@/features/category-scroll/usePreserveScroll';
+import { useCategorySwiper } from '@/shared/lib/store/useCategorySwiper';
 import { CATEGORIES } from '../model/constants';
 
 const CategoryTabs = () => {
-  const navigate = useNavigate();
-  const { pathname } = useLocation();
-  const { scrollRef, rememberScroll } = usePreserveScroll();
-  const handleClick = (path: string) => {
-    rememberScroll();
-    navigate(path);
-  };
+  const { activeIndex, setActiveIndex } = useCategorySwiper();
+  const tabRefs = useRef<Array<HTMLLIElement | null>>([]);
+  const isFirstRender = useRef(true);
+  useEffect(() => {
+    const target = tabRefs.current[activeIndex];
+    if (target) {
+      target.scrollIntoView({
+        behavior: isFirstRender.current ? 'auto' : 'smooth',
+        inline: 'center',
+        block: 'nearest',
+      });
+      isFirstRender.current = false;
+    }
+  }, [activeIndex]);
+
   return (
-    <Wrapper ref={scrollRef}>
+    <Wrapper>
       <TabList>
-        {CATEGORIES.map(({ label, path }) => (
-          <TabItem key={path} isActive={pathname === path} onClick={() => handleClick(path)}>
+        {CATEGORIES.map(({ label }, index) => (
+          <TabItem
+            key={label}
+            ref={el => {
+              tabRefs.current[index] = el;
+            }}
+            isActive={index === activeIndex}
+            onClick={() => setActiveIndex(index)}
+          >
             {label}
           </TabItem>
         ))}

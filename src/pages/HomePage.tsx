@@ -1,4 +1,4 @@
-import BannerCarousel from '@/widgets/BannerCarousel';
+import BannerCarousel from '@/widgets/BannerSwiper';
 import CategorySwiper from '@/widgets/CategorySwiper';
 import CategoryTabs from '@/widgets/CategoryTabs';
 
