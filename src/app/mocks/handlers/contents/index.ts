@@ -1,4 +1,3 @@
-// src/app/mocks/handlers/hanteo.ts
 import { http, HttpResponse } from 'msw';
 import { hanteoMockData } from '../data';
 
