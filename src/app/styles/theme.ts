@@ -8,6 +8,8 @@ const theme = {
     text: '#333333', // 기본 텍스트
     textSecondary: '#666666', // 서브 텍스트
     textDisabled: '#999999', // 비활성 텍스트
+    gray: '#E5E5E5',
+    accent: '#FF6F85',
     surface: '#ffffff',
     border: '#e0e0e0',
     toast: {
