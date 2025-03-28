@@ -10,7 +10,7 @@ const Carousel = () => {
   return (
     <StyledSwiper
       spaceBetween={12}
-      slidesPerView={1.13}
+      slidesPerView={1.2}
       centeredSlides
       loop
       autoplay={{ delay: 4000, disableOnInteraction: false }}
@@ -30,7 +30,7 @@ const Carousel = () => {
                   <Title>{banner.title}</Title>
                   <ActiveButton>{banner.buttonLabel ?? '바로가기'}</ActiveButton>
                 </ContentTop>
-                <Date>{`${banner.startDate} ~ ${banner.endDate} (KST)`}</Date>
+                <DateRange>{`${banner.startDate} ~ ${banner.endDate} (KST)`}</DateRange>
               </Content>
             </Card>
           </a>
@@ -126,7 +126,7 @@ const ActiveButton = styled.button`
   white-space: nowrap;
   flex-shrink: 0;
 `;
-const Date = styled.p`
+const DateRange = styled.p`
   font-size: 0.75rem;
   color: ${({ theme }) => theme.colors.textSecondary};
   margin-top: 6px;
