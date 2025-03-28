@@ -1,21 +1,24 @@
-// ui/Carousel.tsx
 import styled from '@emotion/styled';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Autoplay, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { bannerList } from '../model/bannerData';
 
-const Carousel = () => {
+const BannerSwiper = () => {
   return (
     <StyledSwiper
       spaceBetween={12}
       slidesPerView={1.2}
+      longSwipes={false}
+      touchRatio={0.4}
+      threshold={20}
+      freeMode={false}
+      resistanceRatio={0}
       centeredSlides
       loop
-      autoplay={{ delay: 4000, disableOnInteraction: false }}
       pagination={{ clickable: true }}
-      modules={[Autoplay, Pagination]}
+      modules={[Pagination]}
     >
       {bannerList.map(banner => (
         <SwiperSlide key={banner.id}>
@@ -40,7 +43,7 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default BannerSwiper;
 
 const StyledSwiper = styled(Swiper)`
   width: 100%;
