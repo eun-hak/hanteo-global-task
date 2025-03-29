@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
-import HanteoList from '@/features/hanteo';
+import ContentList from '@/features/content-list';
 
 const ChartContent = () => {
   return (
     <Container>
-      <HanteoList />
+      <ContentList type="charts" contentName="차트" />
     </Container>
   );
 };
