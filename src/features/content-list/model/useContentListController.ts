@@ -1,9 +1,9 @@
 // features/hanteoList/model/useHanteoList.ts
 import { useCallback, useRef } from 'react';
-import { useInfiniteHanteoQuery } from './useInfiniteHanteoQuery';
+import { useInfiniteContentQuery } from '@/shared/infiniteContent/useInfiniteContentQuery';
 
-export const useHanteoListController = () => {
-  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useInfiniteHanteoQuery();
+export const useHanteoListController = (type: string) => {
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useInfiniteContentQuery(type);
 
   const isFetchingRef = useRef(false);
 

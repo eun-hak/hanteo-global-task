@@ -1,15 +1,16 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
-import axios from 'axios';
+import { getRequest } from '@/shared/api/requestApi';
+// getRequest 가져오기
 import type { HanteoResponse } from './types';
 
 const LIMIT = 10;
 
-export const useInfiniteHanteoQuery = () => {
+export const useInfiniteContentQuery = (type: string) => {
   return useInfiniteQuery({
-    queryKey: ['hanteo'],
+    queryKey: ['List', type],
     queryFn: async ({ pageParam = 1 }) => {
-      const res = await axios.get<HanteoResponse>(`/api/hanteo?page=${pageParam}&limit=${LIMIT}`);
-      return res.data;
+      const url = `/api/content/${type}?page=${pageParam}&limit=${LIMIT}`;
+      return getRequest<HanteoResponse>(url);
     },
     initialPageParam: 1,
     getNextPageParam: lastPage => (lastPage.hasNextPage ? lastPage.nextPage : undefined),
