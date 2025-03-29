@@ -1,4 +1,4 @@
-export interface CartsItem {
+export interface ChartsItem {
   rank: number;
   title: string;
   artist: string;
@@ -7,7 +7,7 @@ export interface CartsItem {
 }
 
 export interface ChartsResponse {
-  data: CartsItem[];
+  data: ChartsItem[];
   nextPage: number | null;
   hasNextPage: boolean;
 }

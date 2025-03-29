@@ -1,4 +1,3 @@
-// features/hanteoList/model/useHanteoList.ts
 import { useCallback, useRef } from 'react';
 import { useInfiniteContentQuery } from '@/shared/infiniteContent/useInfiniteContentQuery';
 

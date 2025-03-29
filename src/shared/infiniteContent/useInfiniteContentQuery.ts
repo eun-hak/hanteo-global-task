@@ -1,6 +1,5 @@
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { getRequest } from '@/shared/api/requestApi';
-// getRequest 가져오기
 import type { HanteoResponse } from './types';
 
 const LIMIT = 10;
