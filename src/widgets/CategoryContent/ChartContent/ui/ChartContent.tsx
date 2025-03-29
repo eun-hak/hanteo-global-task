@@ -1,10 +1,10 @@
 import styled from '@emotion/styled';
+import ContentList from '@/features/content-list';
 
 const ChartContent = () => {
   return (
     <Container>
-      <h2>실시간 차트 순위</h2>
-      <p>이곳에 차트 리스트가 표시될 예정입니다.</p>
+      <ContentList type="charts" contentName="차트" />
     </Container>
   );
 };
@@ -12,5 +12,5 @@ const ChartContent = () => {
 export default ChartContent;
 
 const Container = styled.div`
-  padding: 16px;
+  background-color: ${({ theme }) => theme.colors.background};
 `;

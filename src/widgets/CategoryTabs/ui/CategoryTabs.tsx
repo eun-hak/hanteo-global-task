@@ -42,10 +42,12 @@ const CategoryTabs = () => {
 export default CategoryTabs;
 
 const Wrapper = styled.div`
+  position: sticky;
+  top: 0;
+  z-index: 10;
   background-color: ${({ theme }) => theme.colors.secondary};
   overflow-x: auto;
   white-space: nowrap;
-
   -ms-overflow-style: none;
   scrollbar-width: none;
   &::-webkit-scrollbar {
