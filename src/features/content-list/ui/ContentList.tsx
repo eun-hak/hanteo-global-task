@@ -35,7 +35,7 @@ const HanteoList = ({ type, contentName }: { type: string; contentName?: string 
 export default HanteoList;
 
 const VirtuosoWrapper = styled.div`
-  height: calc(100vh - 300px);
+  height: calc(100vh - 290px);
   padding-bottom: 88px;
 `;
 
