@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { useCategorySwiper } from '@/shared/lib/store/useCategorySwiper';
 
-export const useCategoryTabsController = () => {
+export const useCategoryTabsScroller = () => {
   const { activeIndex, setActiveIndex } = useCategorySwiper();
   const tabRefs = useRef<Array<HTMLLIElement | null>>([]);
   const isFirstRender = useRef(true);

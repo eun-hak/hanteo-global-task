@@ -12,11 +12,11 @@ import {
   WhookContent,
 } from '@/widgets/CategoryContent';
 import { CATEGORIES } from '@/widgets/CategoryTabs/model/constants';
-import { useCategorySwiperController } from '../model/useCategorySwiperController';
+import { useCategorySwiperSlider } from '../model/useCategorySwiperSlider';
 
 const CategorySwiper = () => {
   const swiperRef = useRef<SwiperType | null>(null);
-  const { handleSlideChange } = useCategorySwiperController(swiperRef);
+  const { handleSlideChange } = useCategorySwiperSlider(swiperRef);
   return (
     <StyledSwiper
       onSwiper={swiper => (swiperRef.current = swiper)}
@@ -30,7 +30,6 @@ const CategorySwiper = () => {
       longSwipes={false}
       loop={false}
     >
-      {/* lazy로딩 구현 필요 */}
       {CATEGORIES.map(({ label }) => (
         <SwiperSlide key={label}>
           {label === '차트' && <ChartContent />}

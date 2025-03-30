@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import type { Swiper as SwiperType } from 'swiper';
 import { useCategorySwiper } from '@/shared/lib/store/useCategorySwiper';
 
-export const useCategorySwiperController = (swiperRef: React.RefObject<SwiperType | null>) => {
+export const useCategorySwiperSlider = (swiperRef: React.RefObject<SwiperType | null>) => {
   const isFirstRender = useRef(true);
   const { activeIndex, setActiveIndex } = useCategorySwiper();
 

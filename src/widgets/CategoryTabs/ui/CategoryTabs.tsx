@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import { CATEGORIES } from '../model/constants';
-import { useCategoryTabsController } from '../model/useCategoryTabsController';
+import { useCategoryTabsScroller } from '../model/useCategoryTabsScroller';
 
 const CategoryTabs = () => {
-  const { activeIndex, setActiveIndex, tabRefs } = useCategoryTabsController();
+  const { activeIndex, setActiveIndex, tabRefs } = useCategoryTabsScroller();
 
   return (
     <Wrapper>
