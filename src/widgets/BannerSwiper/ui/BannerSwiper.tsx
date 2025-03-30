@@ -1,15 +1,20 @@
+import { useMemo, useRef, useState } from 'react';
 import styled from '@emotion/styled';
+import debounce from 'lodash.debounce';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import { Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { bannerList } from '../model/bannerData';
+import CustomDots from './CustomDots';
 
 const BannerSwiper = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const debouncedSetIndex = useMemo(() => debounce((index: number) => setActiveIndex(index), 100), []);
   return (
     <StyledSwiper
       spaceBetween={12}
-      slidesPerView={1.2}
+      slidesPerView={1.12}
       longSwipes={false}
       touchRatio={0.4}
       threshold={20}
@@ -17,8 +22,10 @@ const BannerSwiper = () => {
       resistanceRatio={0}
       centeredSlides
       loop
-      pagination={{ clickable: true }}
-      modules={[Pagination]}
+      watchSlidesProgress
+      onSlideChange={swiper => debouncedSetIndex(swiper.realIndex)}
+      // pagination={{ clickable: true }}
+      // modules={[Pagination]}
     >
       {bannerList.map(banner => (
         <SwiperSlide key={banner.id}>
@@ -39,6 +46,7 @@ const BannerSwiper = () => {
           </a>
         </SwiperSlide>
       ))}
+      <CustomDots length={bannerList.length} realIndex={activeIndex} />
     </StyledSwiper>
   );
 };
@@ -48,7 +56,7 @@ export default BannerSwiper;
 const StyledSwiper = styled(Swiper)`
   width: 100%;
   padding-top: 12px;
-  padding-bottom: 24px;
+  padding-bottom: 12px;
 
   .swiper-pagination-bullets {
     display: flex;
@@ -81,7 +89,7 @@ const ImageWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  height: 150px;
+  height: 130px;
   object-fit: cover;
 `;
 
