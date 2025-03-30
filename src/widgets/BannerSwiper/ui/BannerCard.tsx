@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { Banner } from '../model/types';
+import type { Banner } from '../model/types';
 
 interface Props {
   banner: Banner;

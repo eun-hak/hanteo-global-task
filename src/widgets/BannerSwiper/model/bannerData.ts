@@ -1,4 +1,4 @@
-import { Banner } from './types';
+import type { Banner } from './types';
 
 export const bannerList: Banner[] = [
   {
