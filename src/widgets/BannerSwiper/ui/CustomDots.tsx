@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import { bannerList } from '../model/bannerData';
 
-const CustomDots = ({ length, realIndex }: { length: number; realIndex: number }) => {
+const CustomDots = ({ realIndex }: { realIndex: number }) => {
   return (
     <Dots>
       {bannerList.map((_, idx) => (
