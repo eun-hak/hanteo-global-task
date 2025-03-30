@@ -1,11 +1,11 @@
 import styled from '@emotion/styled';
 import { Virtuoso } from 'react-virtuoso';
-import { useHanteoListController } from '../model/useContentListController';
+import { useInfiniteContentLoader } from '../model/useInfiniteContentLoader';
 import ListItem from './ListItem';
 import Skeleton from './Skeleton';
 
 const HanteoList = ({ type, contentName }: { type: string; contentName?: string }) => {
-  const { flatData, loadMore, isLoading, isFetchingNextPage } = useHanteoListController(type);
+  const { flatData, loadMore, isLoading, isFetchingNextPage } = useInfiniteContentLoader(type);
 
   return (
     <div>

@@ -1,7 +1,7 @@
 import { useCallback, useRef } from 'react';
 import { useInfiniteContentQuery } from '@/shared/infiniteContent/useInfiniteContentQuery';
 
-export const useHanteoListController = (type: string) => {
+export const useInfiniteContentLoader = (type: string) => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useInfiniteContentQuery(type);
 
   const isFetchingRef = useRef(false);
