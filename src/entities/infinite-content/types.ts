@@ -1,4 +1,4 @@
-export interface HanteoItem {
+export interface ContentItem {
   rank: number;
   title: string;
   artist: string;
@@ -6,8 +6,8 @@ export interface HanteoItem {
   coverImage: string;
 }
 
-export interface HanteoResponse {
-  data: HanteoItem[];
+export interface ContentResponse {
+  data: ContentItem[];
   nextPage?: number;
   hasNextPage: boolean;
 }

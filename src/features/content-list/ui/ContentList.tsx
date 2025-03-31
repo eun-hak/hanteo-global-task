@@ -4,7 +4,7 @@ import { useInfiniteContentLoader } from '../model/useInfiniteContentLoader';
 import ListItem from './ListItem';
 import Skeleton from './Skeleton';
 
-const HanteoList = ({ type, contentName }: { type: string; contentName?: string }) => {
+const ContentList = ({ type, contentName }: { type: string; contentName?: string }) => {
   const { flatData, loadMore, isLoading, isFetchingNextPage } = useInfiniteContentLoader(type);
 
   return (
@@ -32,7 +32,7 @@ const HanteoList = ({ type, contentName }: { type: string; contentName?: string 
   );
 };
 
-export default HanteoList;
+export default ContentList;
 
 const VirtuosoWrapper = styled.div`
   height: calc(100vh - 290px);
