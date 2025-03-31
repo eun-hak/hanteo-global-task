@@ -1,5 +1,5 @@
 import { useCallback, useRef } from 'react';
-import { useInfiniteContentQuery } from '@/shared/infiniteContent/useInfiniteContentQuery';
+import { useInfiniteContentQuery } from '@/entities/infinite-content/useInfiniteContentQuery';
 
 export const useInfiniteContentLoader = (type: string) => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useInfiniteContentQuery(type);
