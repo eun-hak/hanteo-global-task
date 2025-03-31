@@ -96,7 +96,7 @@ src/
 ```
 ---
 
-## 🧯 트러블슈팅 (설명=> [(PR: #16)](https://github.com/eun-hak/hanteo-global-task/pull/16))
+## 🧯 트러블슈팅 (설명=> [(PR: #18)](https://github.com/eun-hak/hanteo-global-task/pull/18))
 
 **이슈: Swiper loop + pagination 동기화 오류**  
 
