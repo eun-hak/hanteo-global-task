@@ -1,9 +1,8 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import styled from '@emotion/styled';
 import type { Swiper as SwiperType } from 'swiper';
 import 'swiper/css';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { useCategorySwiper } from '@/shared/lib/store/useCategorySwiper';
 import {
   ChargeContent,
   ChartContent,
@@ -13,32 +12,24 @@ import {
   WhookContent,
 } from '@/widgets/CategoryContent';
 import { CATEGORIES } from '@/widgets/CategoryTabs/model/constants';
+import { useCategorySwiperSlider } from '../model/useCategorySwiperSlider';
 
 const CategorySwiper = () => {
   const swiperRef = useRef<SwiperType | null>(null);
-  const isFirstRender = useRef(true);
-  const { activeIndex, setActiveIndex } = useCategorySwiper();
-
-  useEffect(() => {
-    if (!swiperRef.current) return;
-    swiperRef.current.slideTo(activeIndex, isFirstRender.current ? 0 : undefined);
-    isFirstRender.current = false;
-  }, [activeIndex]);
-
+  const { handleSlideChange } = useCategorySwiperSlider(swiperRef);
   return (
     <StyledSwiper
       onSwiper={swiper => (swiperRef.current = swiper)}
-      onSlideChange={swiper => setActiveIndex(swiper.activeIndex)}
+      onSlideChange={swiper => handleSlideChange(swiper.activeIndex)}
       slidesPerView={1}
       spaceBetween={12}
-      touchRatio={0.4}
+      touchRatio={0.8}
       threshold={20}
       freeMode={false}
       resistanceRatio={0}
       longSwipes={false}
       loop={false}
     >
-      {/* lazy로딩 구현 필요 */}
       {CATEGORIES.map(({ label }) => (
         <SwiperSlide key={label}>
           {label === '차트' && <ChartContent />}

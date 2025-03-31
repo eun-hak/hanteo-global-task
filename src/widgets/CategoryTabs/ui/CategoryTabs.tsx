@@ -1,23 +1,9 @@
-import { useEffect, useRef } from 'react';
 import styled from '@emotion/styled';
-import { useCategorySwiper } from '@/shared/lib/store/useCategorySwiper';
 import { CATEGORIES } from '../model/constants';
+import { useCategoryTabsScroller } from '../model/useCategoryTabsScroller';
 
 const CategoryTabs = () => {
-  const { activeIndex, setActiveIndex } = useCategorySwiper();
-  const tabRefs = useRef<Array<HTMLLIElement | null>>([]);
-  const isFirstRender = useRef(true);
-  useEffect(() => {
-    const target = tabRefs.current[activeIndex];
-    if (target) {
-      target.scrollIntoView({
-        behavior: isFirstRender.current ? 'auto' : 'smooth',
-        inline: 'center',
-        block: 'nearest',
-      });
-      isFirstRender.current = false;
-    }
-  }, [activeIndex]);
+  const { activeIndex, setActiveIndex, tabRefs } = useCategoryTabsScroller();
 
   return (
     <Wrapper>

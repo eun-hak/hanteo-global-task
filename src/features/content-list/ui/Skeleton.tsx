@@ -1,7 +1,7 @@
 import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 
-const HanteoSkeleton = () => {
+const Skeleton = () => {
   return (
     <SkeletonItem>
       <Thumbnail />
@@ -14,7 +14,7 @@ const HanteoSkeleton = () => {
   );
 };
 
-export default HanteoSkeleton;
+export default Skeleton;
 
 const shimmer = keyframes`
   0% {

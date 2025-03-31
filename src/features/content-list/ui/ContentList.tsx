@@ -1,17 +1,17 @@
 import styled from '@emotion/styled';
 import { Virtuoso } from 'react-virtuoso';
-import { useHanteoListController } from '../model/useContentListController';
+import { useInfiniteContentLoader } from '../model/useInfiniteContentLoader';
 import ListItem from './ListItem';
-import HanteoSkeleton from './Skeleton';
+import Skeleton from './Skeleton';
 
-const HanteoList = ({ type, contentName }: { type: string; contentName?: string }) => {
-  const { flatData, loadMore, isLoading, isFetchingNextPage } = useHanteoListController(type);
+const ContentList = ({ type, contentName }: { type: string; contentName?: string }) => {
+  const { flatData, loadMore, isLoading, isFetchingNextPage } = useInfiniteContentLoader(type);
 
   return (
     <div>
       <VirtuosoWrapper>
         <ContentName>{contentName} 목록</ContentName>
-        {isLoading && Array.from({ length: 8 }).map((_, i) => <HanteoSkeleton key={i} />)}
+        {isLoading && Array.from({ length: 8 }).map((_, i) => <Skeleton key={i} />)}
         <Virtuoso
           style={{ height: '100%' }}
           data={flatData}
@@ -32,10 +32,10 @@ const HanteoList = ({ type, contentName }: { type: string; contentName?: string 
   );
 };
 
-export default HanteoList;
+export default ContentList;
 
 const VirtuosoWrapper = styled.div`
-  height: calc(100vh - 300px);
+  height: calc(100vh - 290px);
   padding-bottom: 88px;
 `;
 

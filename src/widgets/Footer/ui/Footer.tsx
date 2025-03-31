@@ -32,7 +32,6 @@ const StyledFooter = styled.footer`
   background-color: ${({ theme }) => theme.colors.secondary};
   display: flex;
   justify-content: space-between;
-
   align-items: center;
   z-index: 100;
 `;
