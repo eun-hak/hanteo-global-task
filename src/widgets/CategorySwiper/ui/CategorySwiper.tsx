@@ -23,7 +23,7 @@ const CategorySwiper = () => {
       onSlideChange={swiper => handleSlideChange(swiper.activeIndex)}
       slidesPerView={1}
       spaceBetween={12}
-      touchRatio={0.4}
+      touchRatio={0.8}
       threshold={20}
       freeMode={false}
       resistanceRatio={0}
